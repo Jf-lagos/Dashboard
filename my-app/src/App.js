@@ -1,11 +1,30 @@
-import React from 'react';
-import Main from "./Layout/Homepage/Main/Main";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import "./App.css";
+
+
+import Home from "./pages/home";
+import Post from "./pages/post";
+import NoMatch from "./pages/no-match";
+import Create from "./pages/create";
 
 function App() {
   return (
-    <div className="App">
-      <Main/>
-    </div>
+    <Router>
+      <nav>
+        <Link to="/">
+          <h2>My React + Firebase Blog</h2>
+        </Link>
+      </nav>
+      <main>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/create" component={Create} />
+          <Route path="/404" component={NoMatch} />
+          <Route path="/:slug" component={Post} />
+        </Switch>
+      </main>
+    </Router>
   );
 }
 
