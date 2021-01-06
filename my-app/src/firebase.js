@@ -1,5 +1,7 @@
 import firebase from "firebase/app";
 import database from "firebase/database";
+import 'firebase/storage'
+import 'firebase/firestore'
 
 
   const config = {
@@ -15,13 +17,11 @@ import database from "firebase/database";
 
   let firebaseCache;
 
-  export const getFirebase = () => {
-    if (firebaseCache) {
-      return firebaseCache;
-    }
+
+  export const getFirebase = firebase.initializeApp(config);
+
+
+
+
   
-    firebase.initializeApp(config);
-    firebaseCache = firebase;
-    return firebase;
-  };
 

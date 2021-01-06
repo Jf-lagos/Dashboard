@@ -36,6 +36,19 @@ const labelStyles = {
       pretty: now.toLocaleDateString("en-US", options)  // used for displaying
     };
   };
+
+    // const useStorage = (file) => {
+    //    const [url, setUrl] = useState(null)
+    // }
+
+    // useEffect(() => {
+    //     const storageRef = projectStorage.ref(file.name);
+        
+    //     storageRef.put(file).on('state_changed', (snap) => {
+    //         let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
+    //     })
+    // }, [file])
+
   
   const Create = ({ history }) => {
     const [title, setTitle] = useState("");
@@ -43,7 +56,17 @@ const labelStyles = {
     const [coverImage, setCoverImage] = useState("");
     const [coverImageAlt, setCoverImageAlt] = useState("");
     const [content, setContent] = useState("");
-  
+    // const [file, setFile] = useState("");
+    
+    const upload = (e) => {
+        const file = e.target.files[0];
+        const storageRef = getFirebase.storage().ref();
+        const fileRef = storageRef.child(file.name);
+        fileRef.put(file).then(() => {
+            console.log("file upload")
+        })
+    };
+
     const createPost = () => {
         const date = generateDate();
         const newPost = {
@@ -53,8 +76,10 @@ const labelStyles = {
           slug,
           coverImage,
           coverImageAlt,
-          content
+          content,
+          //file
         };
+        
         getFirebase()
           .database()
           .ref()
@@ -62,6 +87,8 @@ const labelStyles = {
           .set(newPost)
           .then(() => history.push(`/`));
       };
+    
+
   
     return (
       <>
@@ -105,6 +132,8 @@ const labelStyles = {
               setCoverImage(value);
             }}
           />
+
+          <input type="file" onChange={upload}/>
   
           <label style={labelStyles} htmlFor="cover-image-alt-field">
             Cover image alt

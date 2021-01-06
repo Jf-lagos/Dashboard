@@ -1285,7 +1285,7 @@
   "resolved" "https://registry.npmjs.org/@firebase/firestore-types/-/firestore-types-2.1.0.tgz"
   "version" "2.1.0"
 
-"@firebase/firestore@2.1.1":
+"@firebase/firestore@^2.1.1", "@firebase/firestore@2.1.1":
   "integrity" "sha512-mcKp8psdKSxujaGjyfmt/thlTG5Gk+gFdJbkx4DnGO1PsJG4H5mE0wG//7tOH7DGeRCAmiagjKhA8nQlf/UNCg=="
   "resolved" "https://registry.npmjs.org/@firebase/firestore/-/firestore-2.1.1.tgz"
   "version" "2.1.1"
@@ -1402,7 +1402,7 @@
   "resolved" "https://registry.npmjs.org/@firebase/storage-types/-/storage-types-0.3.13.tgz"
   "version" "0.3.13"
 
-"@firebase/storage@0.4.2":
+"@firebase/storage@^0.4.2", "@firebase/storage@0.4.2":
   "integrity" "sha512-87CrvKrf8kijVekRBmUs8htsNz7N5X/pDhv3BvJBqw8K65GsUolpyjx0f4QJRkCRUYmh3MSkpa5P08lpVbC6nQ=="
   "resolved" "https://registry.npmjs.org/@firebase/storage/-/storage-0.4.2.tgz"
   "version" "0.4.2"
